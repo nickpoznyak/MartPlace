@@ -10,7 +10,10 @@ let paths = {
 
 	scripts: {
 		src: [
-			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/jquery/dist/jquery.min.js', // jquery
+			'node_modules/slick-carousel/slick/slick.min.js', //slick-carousel
+			'node_modules/mixitup/dist/mixitup.min.js', //mixItUp
+			'app/lib/rateyo/jquery.rateyo.min.js',  //RateYo
 			baseDir + '/js/app.js' // app.js. Always at the end
 		],
 		dest: baseDir + '/js',
