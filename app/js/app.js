@@ -28,6 +28,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		slidesToScroll: 1,
 		appendArrows: $(".f-products__head-nav")
 	});
+
+	$(".followers__slider").slick({
+		dots: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		appendArrows: $(".followers__head-nav")
+	});
 	
 	var mixer = mixitup(".new-products-inner-box");
 
