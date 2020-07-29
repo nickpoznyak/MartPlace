@@ -3,6 +3,7 @@
 $accent: #0674ec; // Accent Color
 $red: #ff6a6c;
 $green: #62d03b;
+$yellow: #feb71d;
 $darkgrey: #333333;
 $textcolor: #555555; // Text Color
 $categorycolor: #7347c1; // Color for categories
@@ -22,6 +23,11 @@ $gutter: $grid-gutter-width;
 // @import 'node_modules/bootstrap/scss/utilities/_sizing.scss'; // Optional Bootstrap Utilites
 @import 'node_modules/slick-carousel/slick/slick.scss'; // Slick-slider
 @import 'app/lib/rateyo/jquery.rateyo.min'; //RateYo
+@import 'node_modules/ion-rangeslider/css/ion.rangeSlider.min'; //ionRangeSlider
+@import 'linearicons'; //Linearicons font
+@import 'icomoon'; //FontAwesome font
+
+
 
 // FONTS LOAD SECTION
 
@@ -35,63 +41,7 @@ $gutter: $grid-gutter-width;
 	}
 }
 
+@include font('Quicksand', normal, 300, '../fonts/Quicksand-Light.woff2');
 @include font('Quicksand', normal, 400, '../fonts/Quicksand-Regular.woff2');
 @include font('Quicksand', normal, 500, '../fonts/Quicksand-Medium.woff2');
 @include font('Quicksand', normal, 700, '../fonts/Quicksand-Bold.woff2');
-
-// GENERAL DOCUMENT STYLES
-
-::placeholder {
-	color: #666;
-}
-
-::selection {
-	background-color: $accent;
-	color: #fff;
-}
-
-input, textarea {
-	outline: none;
-	// &:focus:required:invalid { border-color: red }
-	// &:required:valid { border-color: green }
-}
-
-html{
-	box-sizing: border-box;
-}
-
-*, *::before, *::after{
-	box-sizing: inherit;
-}
-
-a{
-	display: inline-block;
-	color: $textcolor;
-	text-decoration: none;
-	&:hover{
-		text-decoration: none;
-		color: inherit;
-	}
-}
-
-body {
-	font-family: $quicksand;
-	font-size: $fontsize;
-	min-width: 320px;
-	position: relative;
-	line-height: 30px;
-	overflow-x: hidden;
-	color: $textcolor;
-}
-
-.container{
-	margin: 0 auto;
-	max-width: 1170px;
-	padding: 0 15px;
-}
-
-.title-medium{
-	font-size: 30px;
-	line-height: 28px;
-	color: #000;
-}
