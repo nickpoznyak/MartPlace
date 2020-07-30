@@ -101,24 +101,81 @@ document.addEventListener("DOMContentLoaded", function() {
 		mixer = mixitup(containerEl);
 	};
 
-	const counters = document.querySelectorAll('.counter');
-	const speed = 200;
-	counters.forEach(counter => {
-		const updateCount = () => {
-			const target = +counter.getAttribute('data-target');
-			const count = +counter.innerText;
+	//Анимация счетчиков на JS
+	// const counters = document.querySelectorAll('.counter');
+	// const speed = 200;
+	// counters.forEach(counter => {
+	// 	const updateCount = () => {
+	// 		const target = +counter.getAttribute('data-target');
+	// 		const count = +counter.innerText;
 
-			const inc = target / speed;
-			if(count < target) {
-				counter.innerText = Math.ceil(count + inc);
-				setTimeout(updateCount, 1);
-			}else{
-				count.innerText = target;
-			}
+	// 		const inc = target / speed;
+	// 		if(count < target) {
+	// 			counter.innerText = Math.ceil(count + inc);
+	// 			setTimeout(updateCount, 1);
+	// 		}else{
+	// 			count.innerText = target;
+	// 		}
 
-			console.log(count);
+	// 		console.log(count);
+	// 	}
+	// 	updateCount();
+	// })
+
+	//Анимация счетчиков на jQuery
+	// $('.counter').each(function () {
+  //   $(this).prop('Counter',0).animate({
+  //       Counter: $(this).text()
+  //   }, {
+  //       duration: 4000,
+  //       easing: 'swing',
+  //       step: function(now) {
+	// 				$(this).text(Math.ceil(now).toLocaleString('en'));
+	// 		}
+	// 	});
+	// });
+
+
+
+	var block_show = false;
+ 
+	function scrollTracking(){
+		if (block_show) {
+			return false;  //показываем анимацию только один раз
 		}
-		updateCount();
-	})
+		
+		var wt = $(window).scrollTop();	//смещение начала окна от начала страницы
+		var wh = $(window).height();	//высота окна
+		var et = $('.counter').offset().top;   //смещение блока-триггера от начала страницы
+		var eh = $('.counter').outerHeight();	//высота блока-триггера
+		var dh = $(document).height();   //высота всего документа
+		
+		if (wt + wh >= et || wh + wt == dh || eh + et < wh){
+			block_show = true;
+			
+			// Код анимации
+			$('.counter').each(function () {
+				$(this).prop('Counter',0).animate({
+						Counter: $(this).text()
+				}, {
+						duration: 2000,
+						easing: 'swing',
+						step: function(now) {
+							$(this).text(Math.ceil(now).toLocaleString('en'));
+					}
+				});
+			});
+			// Конец кода анимации
+		}
+	}
+	
+	$(window).scroll(function(){
+		scrollTracking();
+	});
+	
+	$(document).ready(function(){ 
+		scrollTracking();
+	});
+	
 
 });
